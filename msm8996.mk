@@ -94,8 +94,14 @@ PRODUCT_PACKAGES += \
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
+# Oreo demands navigation bar
+ PRODUCT_PROPERTY_OVERRIDES += \
+     qemu.hw.mainkeys=0
+ 
+ # sdcardfs needs to be turned off explicitly in Oreo
+ # Or massive kernel update needed
+ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.sys.sdcardfs=false
 
 # Alipay / WeChat
 PRODUCT_BOOT_JARS += \
